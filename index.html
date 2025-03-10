@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy @ Character</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Press "I" to Copy 250,000 @ Characters</h1>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            // Check if the pressed key is "I" or "i"
+            if (event.key === 'I' || event.key === 'i') {
+                // Create a string with 250,000 '@' characters
+                const atString = '@'.repeat(250000);
+                
+                // Create a temporary textarea element to hold the string
+                const textarea = document.createElement('textarea');
+                textarea.value = atString;
+                document.body.appendChild(textarea);
+                
+                // Select the text and copy it to the clipboard
+                textarea.select();
+                document.execCommand('copy');
+                
+                // Remove the textarea from the document
+                document.body.removeChild(textarea);
+            }
+        });
+    </script>
+
+</body>
+</html>
